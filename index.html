@@ -16,7 +16,7 @@
         <div id="decisao">
             <form action="#" method="get" name="formPesquisa" id="formPesquisa">
                 <div>
-                    <label for="numeroAta">Informe o número de Ata de Reunião: </label>
+                    <label for="numeroAta"><font face="Garamond">Informe o número de Ata de Reunião: </font></label>
                     <input type="number" name="numeroAta" id="numeroAta" />
                 </div>
                 <div>
@@ -33,19 +33,19 @@
         <div id="registro">
             <form action="#" method="POST" name="formRegistro" id="formRegistro">
                 <div>
-                    <label for="pauta">Ordem do Dia: </label>
+                    <label for="pauta"><font face="Garamond">Pauta da reunião: </font></label>
                     <input type="text" name="pauta" id="pauta" size="80" />
                 </div>
                 <div>
-                    <label for="decisao">Deliberações: </label>
+                    <label for="decisao"><font face="Garamond">Deliberações: </font></label>
                     <input type="text" name="decisao" id="decisao" size="80" />
                 </div>
                 <div>
-                    <label for="data">Data da Reunião (dd/mm/aaaa): </label>
+                    <label for="data"><font face="Garamond">Data da Reunião (dd/mm/aaaa): </font></label>
                     <input type="text" name="data" id="data" />
                 </div>
                 <div>
-                    <button onclick="ArquivarAta()">Gravar</button>
+                    <button onclick="ArquivarAta()" class="btn btn-danger"><font face="Garamond"><span class="glyphicon glyphicon-th"> GRAVAR</span></font></button>
                 </div>
             </form>
             <br>
