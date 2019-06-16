@@ -77,12 +77,12 @@
         }
 
         var frmRegistro = document.formRegistro;
-        function arquivarAta() {
+        function ArquivarAta() {
             event.preventDefault();
             $("#statusTransacao").html("&nbsp;");
-            contract.arquivarAta(frmRegistro.pauta.value, frmRegistro.decisao.value, frmRegistro.data.value, {from: web3.eth.accounts[0], gas: 3000000, value: 0}, function (erro, resultado) {
+            contract.ArquivarAta(frmRegistro.pauta.value, frmRegistro.decisao.value, frmRegistro.data.value, {from: web3.eth.accounts[0], gas: 3000000, value: 0}, function (erro, resultado) {
                 if (erro) {
-                    console.log("arquivarAta");
+                    console.log("ArquivarAta");
                     console.error(erro);
                     alert("Houve um erro ao arquivar esta ata");
                     return
