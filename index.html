@@ -5,11 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <title>Página de Teste de Web3 com jQuery e Bootstrap 3</title>
+    <title>Sistema de Consulta e Registro de Atas</title>
 </head>
 <body>
     <div class="container">
-        <h1>SISTEMA DE REGISTRO E CONSULTA DE DELIBERAÇÕES SOCIETÁRIAS EM BLOCKCHAIN</h1>
+        <h1>Consulta de Deliberações Societárias</h1>
         <br>
         <h2>Acessar resumo das decisões</h2>
         <div id="decisao">
@@ -27,7 +27,7 @@
         <br>
         <hr>
         <br>
-        <h2>Arquivar Atas de Reunião</h2>
+        <h2>Registrar Atas de Reunião</h2>
         <br>
         <div id="registro">
             <form action="#" method="POST" name="formRegistro" id="formRegistro">
@@ -60,21 +60,6 @@
     <script src="abi.js"></script>
     <script>
 
-        var frmRegistro = document.formRegistro;
-        function arquivarAta() {
-            event.preventDefault();
-            $("#statusTransacao").html("&nbsp;");
-            contract.arquivarAta(frmRegistro.pauta.value, frmRegistro.decisao.value, frmRegistro.data.value, {from: web3.eth.accounts[0], gas: 3000000, value: 0}, function (erro, resultado) {
-                if (erro) {
-                    console.log("arquivarAta");
-                    console.error(erro);
-                    alert("Houve um erro ao arquivar esta ata");
-                    return
-                }
-                waitForTxToBeMined(resultado, "#statusTransacao");
-            })
-        }
-
         var frmPesquisa = document.formPesquisa;
         function consultarDecisoes() {
             event.preventDefault();
@@ -88,6 +73,21 @@
                     return
                 }
                 $("#resultadoPesquisa").html("Resumo das deliberações: " + resultado);
+            })
+        }
+
+        var frmRegistro = document.formRegistro;
+        function arquivarAta() {
+            event.preventDefault();
+            $("#statusTransacao").html("&nbsp;");
+            contract.arquivarAta(frmRegistro.pauta.value, frmRegistro.decisao.value, frmRegistro.data.value, {from: web3.eth.accounts[0], gas: 3000000, value: 0}, function (erro, resultado) {
+                if (erro) {
+                    console.log("arquivarAta");
+                    console.error(erro);
+                    alert("Houve um erro ao arquivar esta ata");
+                    return
+                }
+                waitForTxToBeMined(resultado, "#statusTransacao");
             })
         }
 
